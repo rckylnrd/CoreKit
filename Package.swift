@@ -10,26 +10,19 @@ let package = Package(
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(name: "CoreFoundation", targets: ["CoreFoundation"]),
-        .library(name: "CoreUI", targets: ["CoreUI"]),
         .library(name: "CoreNetwork", targets: ["CoreNetwork"]),
-        .library(name: "CoreNavigation", targets: ["CoreNavigation"]),
+        .library(name: "CoreUI", targets: ["CoreUI"])
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         
         // main target
-        .target(name: "CoreFoundation"),
-        .target(name: "CoreNetwork", dependencies: ["CoreFoundation"]),
-        .target(name: "CoreUI", dependencies: ["CoreFoundation"]),
-        .target(name: "CoreNavigation", dependencies: ["CoreFoundation"]),
-        
+        .target(name: "CoreNetwork", dependencies: []),
+        .target(name: "CoreUI", dependencies: []),
         
         // Test targets
-        .testTarget(name: "CoreFoundationTests", dependencies: ["CoreFoundation"]),
         .testTarget(name: "CoreNetworkTests", dependencies: ["CoreNetwork"]),
-        .testTarget(name: "CoreUITests", dependencies: ["CoreUI"]),
-        .testTarget(name: "CoreNavigationTests", dependencies: ["CoreNavigation"]),
+        .testTarget(name: "CoreUITests", dependencies: ["CoreUI"])
     ]
 )
